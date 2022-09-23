@@ -1,5 +1,5 @@
 <script setup>
-
+import Carousel from "./panels/Carousel.vue"
 </script>
 <template>
     <div class="home">
@@ -8,7 +8,7 @@
             <div>fsdaf</div>
         </div>
         <div class="home-content">
-            
+            <carousel />
         </div>
     </div>
 </template>
@@ -18,6 +18,7 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+
     .home-head {
         padding: 0 1rem;
         display: flex;
@@ -26,7 +27,8 @@
         justify-content: space-between;
         align-items: center;
     }
-    .home-content{
+
+    .home-content {
         flex: 1;
         background-color: var(--van-background-color);
         overflow: auto;
