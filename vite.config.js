@@ -7,6 +7,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+    base:'/appWeb/',
     plugins: [vue(), legacy({
         targets: ['defaults', 'not IE 11', 'Chrome 63']
     }), createSvgIconsPlugin({
