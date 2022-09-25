@@ -15,11 +15,11 @@ const tabBarActive = ref()
                     </div>
                 </template>
             </van-tabbar-item>
-            <van-tabbar-item style="color:#6192eb">
+            <van-tabbar-item style="color:#F28E38">
                 <span>扫一扫</span>
                 <template #icon>
                     <div style="display: flex;justify-content: center; align-items: center;">
-                        <svg-icon name="scan" color="#6192eb" size="1.8rem" />
+                        <svg-icon name="scan" color="#F28E38" size="1.8rem" />
                     </div>
                 </template>
             </van-tabbar-item>
