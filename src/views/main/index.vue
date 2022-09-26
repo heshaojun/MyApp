@@ -4,8 +4,10 @@ const tabBarActive = ref()
 </script>
 <template>
     <div class="main">
-        <router-view />
-        <van-tabbar v-model="tabBarActive" :placeholder="false" :safe-area-inset-bottom="true" route>
+        <div style="flex:1;overflow: hidden;">
+            <router-view />
+        </div>
+        <van-tabbar v-model="tabBarActive" :placeholder="true" :safe-area-inset-bottom="true" route>
             <van-tabbar-item to="/main/home" :replace="true">
                 <span>首页</span>
                 <template #icon="props">
@@ -39,5 +41,7 @@ const tabBarActive = ref()
 .main {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 </style>

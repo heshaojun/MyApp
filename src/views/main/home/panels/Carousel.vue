@@ -1,25 +1,23 @@
 <!--轮播图面板-->
 <script setup>
-import {onMounted, getCurrentInstance, ref} from "vue";
-import swipe1 from "@/assets/imgs/swipe1.jpg"
-import swipe2 from "@/assets/imgs/swipe2.jpg"
+import { onMounted, getCurrentInstance, ref, computed } from "vue";
+import { useStore } from "vuex";
 
-const {proxy} = getCurrentInstance();
+const { proxy } = getCurrentInstance();
+const store = useStore();
 const componentHeight = ref();
-const swipeList = ref([swipe1 , swipe2, swipe1])
+const swipeList = computed(() => store.state.home.swipeList)
 onMounted(() => {
   let currentComponent = proxy.$refs["panel-carousel"];
   componentHeight.value = currentComponent.clientWidth / 2 + "px";
+  store.dispatch("home/fetchSwipeList")
 });
 </script>
 <template>
-  <div
-      class="panel-carousel"
-      ref="panel-carousel"
-  >
+  <div class="panel-carousel" ref="panel-carousel">
     <van-swipe :autoplay="3000" indicator-color="white">
       <van-swipe-item v-for="item in swipeList" :key="item">
-        <van-image :src="item" :height="componentHeight" width="100%" fit="cover"/>
+        <van-image :src="item" :height="componentHeight" width="100%" fit="cover" />
       </van-swipe-item>
     </van-swipe>
   </div>

@@ -4,7 +4,7 @@
 <template>
   <div class="grid-nav">
     <van-grid column-num="4" square :border="false">
-      <van-grid-item text="工作">
+      <van-grid-item text="工作" to="/work">
         <template #icon>
           <div class="grid-icon-item"
                style="background-color: #F28E38;"
@@ -13,7 +13,7 @@
           </div>
         </template>
       </van-grid-item>
-      <van-grid-item text="资料库">
+      <van-grid-item text="资料库" to="/lib">
         <template #icon>
           <div class="grid-icon-item"
                style="background-color: #FFA501;"
@@ -31,7 +31,7 @@
           </div>
         </template>
       </van-grid-item>
-      <van-grid-item text="实验室">
+      <van-grid-item text="实验室" to="lab">
         <template #icon>
           <div class="grid-icon-item"
                style="background-color: #E5A96B;"

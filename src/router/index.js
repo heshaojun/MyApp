@@ -9,13 +9,11 @@ const router = createRouter({
             path: "/login",
             name: "loginPage",
             component: () => import("@/views/basic/login/index.vue")
-        },
-        {
+        }, {
             path: "/register",
             name: "register",
             component: () => import("@/views/basic/register/index.vue")
-        },
-        {
+        }, {
             path: "/main",
             name: "main",
             component: () => import("@/views/main/index.vue"),
@@ -31,7 +29,28 @@ const router = createRouter({
                     component: () => import("@/views/main/mine/index.vue")
                 }
             ]
+        }, {
+            path: "/approve",
+            name: "approve",
+            component: () => import("@/views/funcs/approve/index.vue")
+        }, {
+            path: "/lab",
+            name: "lab",
+            component: () => import("@/views/funcs/lab/index.vue")
+        }, {
+            path: "/lib",
+            name: "lib",
+            component: () => import("@/views/funcs/lib/index.vue")
+        }, {
+            path: "/news",
+            name: "news",
+            component: () => import("@/views/funcs/news/index.vue")
+        }, {
+            path: "/work",
+            name: "work",
+            component: () => import("@/views/funcs/work/index.vue")
         }
+
     ]
 })
 export default router
