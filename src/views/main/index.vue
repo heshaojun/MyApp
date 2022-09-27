@@ -1,11 +1,18 @@
 <script setup>
 import { ref } from "vue"
 const tabBarActive = ref()
+const viewCache = ref([])
 </script>
 <template>
     <div class="main">
         <div style="flex:1;overflow: hidden;">
-            <router-view />
+          <router-view v-slot="{ Component }">
+            <transition name="fade-transform" mode="out-in">
+              <keep-alive :include="viewCache">
+                <component :is="Component"/>
+              </keep-alive>
+            </transition>
+          </router-view>
         </div>
         <van-tabbar v-model="tabBarActive" :placeholder="true" :safe-area-inset-bottom="true" route>
             <van-tabbar-item to="/main/home" :replace="true">

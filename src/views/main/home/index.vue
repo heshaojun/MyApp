@@ -38,7 +38,7 @@ import HeadBar from "./panels/HeadBar.vue";
   .home-head {
     padding: 0 1rem;
     height: 2.875rem;
-    border-bottom: 1px solid var(--van-background-color-light);
+    border-bottom: 1px solid var(--van-gray-4);
     position: sticky;
     top: 0px;
     z-index: 1000;

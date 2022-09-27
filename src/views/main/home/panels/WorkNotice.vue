@@ -18,7 +18,7 @@ onMounted(() => {
     <template v-if="workList.length">
       <div style="width:100%;margin: 1rem 0 0.5rem 0;">
         <div v-for="item in workList" :key="item"
-          style="display:flex;justify-content:space-between;color: var(--van-text-color-1);align-items: center;margin: 0.5rem auto;">
+          style="display:flex;justify-content:space-between;color: var(--van-text-color);align-items: center;margin: 0.6rem auto;">
           <div>{{item.title}}</div>
           <div :style="{'color':item.color,'font-size':'var(--van-font-size-sm)'}">{{item.state}}</div>
         </div>
