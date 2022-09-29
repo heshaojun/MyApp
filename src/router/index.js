@@ -48,7 +48,22 @@ const router = createRouter({
         }, {
             path: "/work",
             name: "work",
-            component: () => import("@/views/funcs/work/index.vue")
+            component: () => import("@/views/funcs/work/index.vue"),
+            children: [
+                {
+                    path: "createByMe",
+                    name: "createByMe",
+                    component: () => import("@/views/funcs/work/pages/createByMe/index.vue")
+                }, {
+                    path: "handleByMe",
+                    name: "handleByMe",
+                    component: () => import("@/views/funcs/work/pages/handleByMe/index.vue")
+                }, {
+                    path: "checkByMe",
+                    name: "checkByMe",
+                    component: () => import("@/views/funcs/work/pages/checkByMe/index.vue")
+                }
+            ]
         }
 
     ]
