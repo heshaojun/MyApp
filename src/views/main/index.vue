@@ -1,14 +1,13 @@
 <script setup>
 import { ref } from "vue"
 const tabBarActive = ref()
-const viewCache = ref([])
 </script>
 <template>
     <div class="main">
         <div style="flex:1;overflow: hidden;">
           <router-view v-slot="{ Component }">
             <transition name="fade-transform" mode="out-in">
-              <keep-alive :include="viewCache">
+              <keep-alive>
                 <component :is="Component"/>
               </keep-alive>
             </transition>

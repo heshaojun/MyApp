@@ -9,16 +9,16 @@ const loginForm = reactive({
 //验证码图片
 const verifyCodeImgRef = ref()
 //登录操作
-const _doLogin = () => {
+const doLogin_ = () => {
 
 }
 //获取验证码
-const _fetchVerifyCodeImg = () => {
+const fetchVerifyCodeImg_ = () => {
 
 }
 
 onMounted(() => {
-  _fetchVerifyCodeImg()
+  fetchVerifyCodeImg_()
 })
 </script>
 
