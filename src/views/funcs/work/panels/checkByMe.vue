@@ -15,7 +15,7 @@ const checkByMeList = ref([])
 //拉取数据
 const onload_ = () => {
     loading.value = true;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
         checkByMeList.value.push(Math.random());
     }
     loading.value = false;

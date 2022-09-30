@@ -11,7 +11,8 @@ const active = ref(0);
 </script>
 <template>
     <div class="work">
-        <van-nav-bar title="工作" left-arrow left-text="返回" :placeholder="true" @click-left="router.back()" />
+        <van-nav-bar title="工作" left-arrow left-text="返回" :placeholder="true" @click-left="router.back()"
+            right-text="新建" @click-right="router.push('/addNewWork')" />
         <van-tabs :border="true" v-model:active="active" color="#70B603">
             <van-tab title="我创建的" />
             <van-tab title="我处理的" />

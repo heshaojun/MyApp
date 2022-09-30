@@ -49,6 +49,14 @@ const router = createRouter({
             path: "/work",
             name: "work",
             component: () => import("@/views/funcs/work/index.vue"),
+        }, {
+            path: "/addNewWork",
+            name: "addNewWork",
+            component: () => import("@/views/funcs/work/pages/addNewWork/index.vue")
+        }, {
+            path: "/workDetail",
+            name: "workDetail",
+            component: () => import("@/views/funcs/work/pages/workDetail/index.vue")
         }
 
     ]
