@@ -1,6 +1,6 @@
 <!-- 我验收的工作 -->
 <script setup>
-import { ref, reactive, onMounted } from "vue";
+import {ref, reactive, onMounted} from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 //下拉刷新状态
@@ -30,7 +30,6 @@ const onRefresh_ = () => {
     onload_();
 }
 onMounted(() => {
-    console.log("fdsafdsafdsafds");
     onRefresh_();
 })
 </script>
@@ -73,4 +72,3 @@ onMounted(() => {
     }
 }
 </style>
-    
