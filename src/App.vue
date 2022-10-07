@@ -1,17 +1,15 @@
 <script setup>
-import {ref} from "vue"
+import { ref } from "vue";
 
-const excludeView = ref(["addNewWork"])
+const excludeView = ref(["addNewWork", "workDetail"]);
 </script>
 
 <template>
   <router-view v-slot="{ Component }">
     <keep-alive :exclude="excludeView">
-      <component :is="Component"/>
+      <component :is="Component" />
     </keep-alive>
   </router-view>
 </template>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

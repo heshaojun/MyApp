@@ -3,18 +3,19 @@ import vue from '@vitejs/plugin-vue'
 import legacy from '@vitejs/plugin-legacy'
 import { resolve } from 'path'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    base:'/appWeb/',
+    base: '/appWeb/',
     plugins: [vue(), legacy({
         targets: ['defaults', 'not IE 11', 'Chrome 63']
     }), createSvgIconsPlugin({
         iconDirs: [resolve(process.cwd(), 'src/icons')],
         symbolId: 'icon-[dir]-[name]',
-         customDomId: '__svg__icons__dom__',
-    })],
+        customDomId: '__svg__icons__dom__',
+    }), VueSetupExtend()],
     resolve: {
         alias: {
             '@': resolve(__dirname, 'src')
