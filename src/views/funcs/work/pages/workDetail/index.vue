@@ -13,7 +13,6 @@ onMounted(() => {});
 </script>
 <template>
   <div class="work-detail">
-    {{ workType }}
     <check-by-me v-if="workType == 'checkByMe'" :work-id="workId" />
     <handle-by-me v-else-if="workType == 'handleByMe'" :work-id="workId" />
     <create-by-me v-else-if="workType == 'createByMe'" :work-id="workId" />
