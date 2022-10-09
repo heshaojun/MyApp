@@ -9,12 +9,12 @@ const workInfo = ref({});
 const showOption = ref(false);
 const optionActions = ref([
   { text: "验收", mark: "accept", disabled: false, icon: "passed" },
-  { text: "退回", mark: "reject", disabled: true, icon: "close" },
+  { text: "退回", mark: "reject", disabled: false, icon: "close" },
 ]);
 const fetchWorkInfo_ = () => {
   workInfo.value = {
     workName: "工作名称",
-    workState: "工作状态",
+    workState: "waitForChecking",
     //工作创建者信息
     workCreater: {
       userId: "用户id",
@@ -71,6 +71,18 @@ const fetchWorkInfo_ = () => {
 };
 onMounted(() => {
   fetchWorkInfo_();
+
+  if (workInfo.workState === "waitForChecking") {
+    optionActions.value = [
+      { text: "验收", mark: "accept", disabled: true, icon: "passed" },
+      { text: "退回", mark: "reject", disabled: true, icon: "close" },
+    ];
+  } else {
+    optionActions.value = [
+      { text: "验收", mark: "accept", disabled: false, icon: "passed" },
+      { text: "退回", mark: "reject", disabled: false, icon: "close" },
+    ];
+  }
 });
 </script>
 <template>
@@ -101,9 +113,29 @@ onMounted(() => {
           <svg-icon name="work" size="1.2rem" color="var(--van-primary-color)" />
           <div style="margin-left: 1rem">{{ workInfo.workName }}</div>
         </div>
-        <div>fds</div>
+        <div>
+          <span v-if="workInfo.workState === 'finished'" style="color: var(--van-gray-5)"
+            >已完成</span
+          >
+          <span
+            v-else-if="workInfo.workState === 'waitForChecking'"
+            style="color: var(--van-green)"
+            >待验收</span
+          >
+          <span
+            v-else-if="workInfo.workState === 'waitForHandling'"
+            style="color: var(--van-orange-dark)"
+            >待接受</span
+          >
+          <span
+            v-else-if="workInfo.workState === 'handing'"
+            style="color: var(--van-blue)"
+            >执行中</span
+          >
+        </div>
       </div>
     </van-cell>
+    <div>工作内容</div>
   </div>
 </template>
 <style lang="scss" scoped>
