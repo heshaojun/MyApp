@@ -15,6 +15,11 @@ const fetchWorkInfo_ = () => {
   workInfo.value = {
     workName: "工作名称",
     workState: "waitForChecking",
+    workClasses: "inner",
+    workStation: {
+      stationName: "变电站名称",
+      stationId: "变电站id",
+    },
     //工作创建者信息
     workCreater: {
       userId: "用户id",
@@ -135,7 +140,43 @@ onMounted(() => {
         </div>
       </div>
     </van-cell>
-    <div>工作内容</div>
+    <div style="font-size: var(--van-font-size-md); margin: 0.4rem 1rem">工作内容</div>
+    <van-cell>
+      <div
+        style="
+          display: flex;
+          border-bottom: 1px solid var(--van-gray-3);
+          padding-bottom: 0.4rem;
+        "
+      >
+        <div style="width: 5rem; color: var(--van-gray-6)">工作站点：</div>
+        <div style="flex: 1; text-align: center">
+          {{ workInfo.workStation.stationName }}
+        </div>
+      </div>
+      <div
+        style="
+          display: flex;
+          border-bottom: 1px solid var(--van-gray-3);
+          padding-bottom: 0.4rem;
+          margin-top: 0.4rem;
+        "
+      >
+        <div style="width: 5rem; color: var(--van-gray-6)">工作站点：</div>
+        <div style="flex: 1; text-align: center">fdsaf</div>
+      </div>
+      <div
+        style="
+          display: flex;
+          border-bottom: 1px solid var(--van-gray-3);
+          padding-bottom: 0.4rem;
+          margin-top: 0.4rem;
+        "
+      >
+        <div style="width: 5rem; color: var(--van-gray-6)">工作站点：</div>
+        <div style="flex: 1; text-align: center">fdsaf</div>
+      </div>
+    </van-cell>
   </div>
 </template>
 <style lang="scss" scoped>
