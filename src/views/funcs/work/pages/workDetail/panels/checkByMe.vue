@@ -15,6 +15,7 @@ const fetchWorkInfo_ = () => {
   workInfo.value = {
     workName: "工作名称",
     workState: "waitForChecking",
+    creatTime: "2022-01-01 22:34:11",
     workClasses: "inner",
     workStation: {
       stationName: "变电站名称",
@@ -92,96 +93,136 @@ onMounted(() => {
 </script>
 <template>
   <div class="check-by-me">
-    <van-nav-bar
-      title="我验收的工作"
-      left-arrow
-      @click-left="router.back()"
-      :safe-area-inset-top="true"
-      :placeholder="true"
-    >
+    <van-nav-bar title="我验收的工作" left-arrow left-text="返回" @click-left="router.back()" :safe-area-inset-top="true">
       <template #right>
-        <van-popover
-          v-model:show="showOption"
-          :actions="optionActions"
-          placement="bottom-end"
-          style="width: 6rem"
-        >
+        <van-popover v-model:show="showOption" :actions="optionActions" placement="bottom-end" style="width: 6rem">
           <template #reference>
             <div style="color: var(--van-primary-color)">操作</div>
           </template>
         </van-popover>
       </template>
     </van-nav-bar>
-    <van-cell>
-      <div style="display: flex; align-items: center; justify-content: space-between">
-        <div style="display: flex; align-items: center">
-          <svg-icon name="work" size="1.2rem" color="var(--van-primary-color)" />
-          <div style="margin-left: 1rem">{{ workInfo.workName }}</div>
-        </div>
-        <div>
-          <span v-if="workInfo.workState === 'finished'" style="color: var(--van-gray-5)"
-            >已完成</span
-          >
-          <span
-            v-else-if="workInfo.workState === 'waitForChecking'"
-            style="color: var(--van-green)"
-            >待验收</span
-          >
-          <span
-            v-else-if="workInfo.workState === 'waitForHandling'"
-            style="color: var(--van-orange-dark)"
-            >待接受</span
-          >
-          <span
-            v-else-if="workInfo.workState === 'handing'"
-            style="color: var(--van-blue)"
-            >执行中</span
-          >
-        </div>
-      </div>
-    </van-cell>
-    <div style="font-size: var(--van-font-size-md); margin: 0.4rem 1rem">工作内容</div>
-    <van-cell>
-      <div
-        style="
+    <div style="flex: 1;overflow: hidden;">
+      <div style="height:100%;overflow-y: auto;">
+        <van-cell>
+          <div style="display: flex; align-items: center; justify-content: space-between">
+            <div style="display: flex; align-items: center">
+              <svg-icon name="work" size="1.2rem" color="var(--van-primary-color)" />
+              <div style="margin-left: 1rem">{{ workInfo.workName }}</div>
+            </div>
+            <div>
+              <span v-if="workInfo.workState === 'finished'" style="color: var(--van-gray-5)">已完成</span>
+              <span v-else-if="workInfo.workState === 'waitForChecking'" style="color: var(--van-green)">待验收</span>
+              <span v-else-if="workInfo.workState === 'waitForHandling'"
+                style="color: var(--van-orange-dark)">待接受</span>
+              <span v-else-if="workInfo.workState === 'handing'" style="color: var(--van-blue)">执行中</span>
+            </div>
+          </div>
+        </van-cell>
+        <div style="font-size: var(--van-font-size-md); margin: 0.4rem 1rem">工作内容</div>
+        <van-cell>
+          <div style="
           display: flex;
           border-bottom: 1px solid var(--van-gray-3);
           padding-bottom: 0.4rem;
-        "
-      >
-        <div style="width: 5rem; color: var(--van-gray-6)">工作站点：</div>
-        <div style="flex: 1; text-align: center">
-          {{ workInfo.workStation.stationName }}
-        </div>
-      </div>
-      <div
-        style="
+        ">
+            <div style="width: 7rem; color: var(--van-gray-6)">工作站点：</div>
+            <div v-if="workInfo.workStation" style="flex: 1; text-align: center">
+              {{ workInfo.workStation.stationName }}
+            </div>
+          </div>
+          <div style="
           display: flex;
           border-bottom: 1px solid var(--van-gray-3);
           padding-bottom: 0.4rem;
           margin-top: 0.4rem;
-        "
-      >
-        <div style="width: 5rem; color: var(--van-gray-6)">工作站点：</div>
-        <div style="flex: 1; text-align: center">fdsaf</div>
-      </div>
-      <div
-        style="
+        ">
+            <div style="width: 7rem; color: var(--van-gray-6)">工作类型：</div>
+            <div style="flex: 1; text-align: center">
+              <span v-if="workInfo.workClasses === 'inner'">内部检修</span>
+              <span v-else-if="workInfo.workClasses === 'outer'">外部检修</span>
+            </div>
+          </div>
+          <div style="
           display: flex;
           border-bottom: 1px solid var(--van-gray-3);
           padding-bottom: 0.4rem;
           margin-top: 0.4rem;
-        "
-      >
-        <div style="width: 5rem; color: var(--van-gray-6)">工作站点：</div>
-        <div style="flex: 1; text-align: center">fdsaf</div>
+        ">
+            <div style="width: 7rem; color: var(--van-gray-6)">创建时间：</div>
+            <div style="flex: 1; text-align: center">{{workInfo.creatTime}}</div>
+          </div>
+
+          <div style="
+          display: flex;
+          border-bottom: 1px solid var(--van-gray-3);
+          padding-bottom: 0.4rem;
+          margin-top: 0.4rem;
+        ">
+            <div style="width: 7rem; color: var(--van-gray-6)">创建人：</div>
+            <div v-if="workInfo.workCreater" style="flex: 1; text-align: center">{{workInfo.workCreater.userName}}</div>
+          </div>
+          <div style="
+          display: flex;
+          border-bottom: 1px solid var(--van-gray-3);
+          padding-bottom: 0.4rem;
+          margin-top: 0.4rem;
+        ">
+            <div style="width: 7rem; color: var(--van-gray-6)">执行人：</div>
+            <div v-if="workInfo.workHandler" style="flex: 1; text-align: center">{{workInfo.workHandler.userName}}</div>
+          </div>
+          <div style="
+          display: flex;
+          border-bottom: 1px solid var(--van-gray-3);
+          padding-bottom: 0.4rem;
+          margin-top: 0.4rem;
+        ">
+            <div style="width: 7rem; color: var(--van-gray-6)">计划开始时间：</div>
+            <div v-if="workInfo.timeInPlan" style="flex: 1; text-align: center">{{workInfo.timeInPlan.startTime}}</div>
+          </div>
+          <div style="
+          display: flex;
+          border-bottom: 1px solid var(--van-gray-3);
+          padding-bottom: 0.4rem;
+          margin-top: 0.4rem;
+        ">
+            <div style="width: 7rem; color: var(--van-gray-6)">计划完成时间：</div>
+            <div v-if="workInfo.timeInPlan" style="flex: 1; text-align: center">{{workInfo.timeInPlan.endTime}}</div>
+          </div>
+          <div style="
+          padding-bottom: 0.4rem;
+          margin-top: 0.4rem;
+        ">
+            <div style="width: 7rem; color: var(--van-gray-6)">计划完成时间：</div>
+            <div style="flex: 1;height: 5rem;overflow-y: auto;">{{workInfo.workContent}}</div>
+          </div>
+        </van-cell>
+        <div style="font-size: var(--van-font-size-md); margin: 0.4rem 1rem">工作节点</div>
+        <van-cell>
+          <van-steps direction="vertical" active="-1">
+            <van-step v-for="node in workInfo.workNodes" :key="node">
+              <div style="display:flex;justify-content: space-between;align-items: center;">
+                <div>
+                  <div style="font-size:var(--van-font-size-lg)">{{node.nodeName}}</div>
+                  <div style="margin-top:0.4rem">{{node.creatTime}}</div>
+                </div>
+                <div v-if="node.hashDetail" style="color:var(--van-primary-color)">
+                  详情>>
+                </div>
+              </div>
+            </van-step>
+          </van-steps>
+        </van-cell>
+        <div style="font-size: var(--van-font-size-md); margin: 0.4rem 1rem" />
       </div>
-    </van-cell>
+    </div>
   </div>
 </template>
 <style lang="scss" scoped>
 .check-by-me {
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 </style>
