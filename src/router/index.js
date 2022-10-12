@@ -45,6 +45,10 @@ const router = createRouter({
             path: "/libList",
             name: "libList",
             component: () => import("@/views/funcs/lib/pages/libList/index.vue")
+        },  {
+            path: "/libSearch",
+            name: "libSearch",
+            component: () => import("@/views/funcs/lib/pages/libSearch/index.vue")
         }, {
             path: "/news",
             name: "news",
