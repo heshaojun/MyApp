@@ -16,8 +16,8 @@ onMounted(() => {
 
 </script>
 <template>
-    <div class="lib" style="display:flex;flex-direction:column">
-        <van-nav-bar title="资料库" left-arrow left-text="返回" @click-left="router.back()">
+    <div class="lib">
+        <van-nav-bar title="资料库" left-arrow left-text="返回" @click-left="router.back()" :safe-area-inset-top="true">
         </van-nav-bar>
         <div style="flex:1;overflow: hidden;color: var(--van-gray-6);font-size: var(--van-font-size-lg);">
             <div style="height:100%;overflow-y: auto;">
@@ -65,5 +65,7 @@ onMounted(() => {
 .lib {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 </style>
