@@ -1,9 +1,10 @@
 <script setup>
 import { useRoute, useRouter } from "vue-router";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, getCurrentInstance } from "vue";
 import popSelect from "./panels/popSelect.vue"
 const router = useRouter();
 const route = useRoute();
+const { proxy } = getCurrentInstance();
 const libId = route.query["libId"];
 
 const activeOption = ref({
@@ -12,7 +13,10 @@ const activeOption = ref({
 const optionList = ref([{
   text: "变电站1", value: "11111"
 }, { text: "变电站2", value: "11221" }])
-onMounted(() => { });
+onMounted(() => {
+  //自动获取焦点
+  proxy.$refs["searchInput"].focus()
+});
 </script>
 <template>
   <div class="lib-search">
@@ -28,8 +32,8 @@ onMounted(() => { });
         <div style="flex:1;display: flex;align-items: center;">
           <input type="text"
             style="flex:1;display: block;height: 1.8rem;border: none;background-color: var(--van-gray-3);border-radius: 0.2rem;padding-left: 1rem;"
-            placeholder="输入查询的内容" />
-          <div style="padding-left:0.8rem;color: var(--van-primary-color);">取消</div>
+            placeholder="输入查询的内容" ref="searchInput" />
+          <div style="padding-left:0.8rem;color: var(--van-primary-color);" @click="router.back()">取消</div>
         </div>
       </div>
     </div>

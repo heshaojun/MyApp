@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 
-const excludeView = ref(["addNewWork", "workDetail"]);
+const excludeView = ref(["addNewWork", "workDetail", "newApprove"]);
 </script>
 
 <template>
@@ -12,4 +12,6 @@ const excludeView = ref(["addNewWork", "workDetail"]);
   </router-view>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+
+</style>

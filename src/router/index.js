@@ -32,7 +32,27 @@ const router = createRouter({
         }, {
             path: "/approve",
             name: "approve",
-            component: () => import("@/views/funcs/approve/index.vue")
+            component: () => import("@/views/funcs/approve/index.vue"),
+            children: [
+                {
+                    path: "launchByMe",
+                    name: "launchByMe",
+                    component: () => import("@/views/funcs/approve/pages/launchByMe/index.vue")
+                },
+                {
+                    path: "approveByMe",
+                    name: "approveByMe",
+                    component: () => import("@/views/funcs/approve/pages/approveByMe/index.vue")
+                }
+            ]
+        }, {
+            path: "/newApprove",
+            name: "newApprove",
+            component: () => import("@/views/funcs/approve/pages/newApprove/index.vue")
+        }, {
+            path: "/approveDetail",
+            name: "approveDetail",
+            component: () => import("@/views/funcs/approve/pages/approveDetail/index.vue")
         }, {
             path: "/lab",
             name: "lab",
@@ -45,10 +65,26 @@ const router = createRouter({
             path: "/libList",
             name: "libList",
             component: () => import("@/views/funcs/lib/pages/libList/index.vue")
-        },  {
+        }, {
             path: "/libSearch",
             name: "libSearch",
             component: () => import("@/views/funcs/lib/pages/libSearch/index.vue")
+        }, {
+            path: "/viewPdf",
+            name: "viewPdf",
+            component: () => import("@/views/funcs/lib/pages/viewPdf/index.vue")
+        }, {
+            path: "/viewImg",
+            name: "viewImg",
+            component: () => import("@/views/funcs/lib/pages/viewImg/index.vue")
+        }, {
+            path: "/viewVideo",
+            name: "viewVideo",
+            component: () => import("@/views/funcs/lib/pages/viewVideo/index.vue")
+        }, {
+            path: "/viewVoice",
+            name: "viewVoice",
+            component: () => import("@/views/funcs/lib/pages/viewVoice/index.vue")
         }, {
             path: "/news",
             name: "news",

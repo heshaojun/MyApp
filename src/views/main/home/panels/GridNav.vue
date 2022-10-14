@@ -22,7 +22,7 @@
           </div>
         </template>
       </van-grid-item>
-      <van-grid-item text="审批">
+      <van-grid-item text="审批" to="/approve">
         <template #icon>
           <div class="grid-icon-item"
                style="background-color: #F28E38;"
@@ -31,7 +31,7 @@
           </div>
         </template>
       </van-grid-item>
-      <van-grid-item text="实验室" to="lab">
+      <van-grid-item text="实验室" to="/lab">
         <template #icon>
           <div class="grid-icon-item"
                style="background-color: #E5A96B;"
