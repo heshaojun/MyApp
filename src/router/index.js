@@ -46,9 +46,13 @@ const router = createRouter({
                 }
             ]
         }, {
-            path: "/newApprove",
-            name: "newApprove",
-            component: () => import("@/views/funcs/approve/pages/newApprove/index.vue")
+            path: "/borrowApply",
+            name: "borrowApply",
+            component: () => import("@/views/funcs/approve/pages/borrowApply/index.vue")
+        }, {
+            path: "/entryApply",
+            name: "entryApply",
+            component: () => import("@/views/funcs/approve/pages/entryApply/index.vue")
         }, {
             path: "/approveDetail",
             name: "approveDetail",

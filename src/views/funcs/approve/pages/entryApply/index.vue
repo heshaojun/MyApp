@@ -1,12 +1,12 @@
-<script setup>
+<script setup name="entryApply">
 </script>
 <template>
-    <div class="approve-detail">
-        审批明细
+    <div class="entry-apply">
+
     </div>
 </template>
 <style lang="scss" scoped>
-.approve-detail {
+.entry-apply {
     width: 100%;
     height: 100%;
 }
