@@ -1,7 +1,14 @@
 <script setup>
 import { ref } from "vue";
 
-const excludeView = ref(["addNewWork", "workDetail", "newApprove", "borrowApply", "entryApply"]);
+const excludeView = ref([
+  "addNewWork",
+  "workDetail",
+  "newApprove",
+  "borrowApply",
+  "entryApply",
+  "approve",
+]);
 </script>
 
 <template>
@@ -13,5 +20,4 @@ const excludeView = ref(["addNewWork", "workDetail", "newApprove", "borrowApply"
 </template>
 
 <style scoped lang="scss">
-
 </style>
