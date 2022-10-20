@@ -9,7 +9,14 @@ const nodeChecked = ref(false);
 //直属子节点展开状态
 const nodeExpand = ref(false);
 
-const handleCheckStateChange_ = () => {};
+const handleCheckStateChange_ = () => {
+  if (nodeChecked.value === true) {
+  }
+};
+
+const handleChecked_ = () => {};
+const handleUnchecked_ = () => {};
+
 onMounted(() => {});
 </script>
 <template>
@@ -17,13 +24,13 @@ onMounted(() => {});
     <div class="title">
       <input
         type="checkbox"
-        checked="nodeChecked"
+        :checked="nodeChecked"
         @change="handleCheckStateChange_"
       />
       <div>{{ props.nodeData.title }}</div>
       <template v-if="props.nodeData.type === 'folder'">
-        <svg-icon v-if="nodeExpand === true" name="arrow-up" />
-        <svg-icon v-else name="arrow-down" />
+        <svg-icon v-if="nodeExpand === true" name="arrow-up" size="1rem" />
+        <svg-icon v-else name="arrow-down" size="1rem" />
       </template>
     </div>
     <div class="nodes"></div>
