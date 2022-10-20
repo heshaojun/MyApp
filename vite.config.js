@@ -10,7 +10,7 @@ import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 export default defineConfig({
     base: '/appWeb/',
     plugins: [vue(), legacy({
-        targets: ['defaults', 'not IE 11', 'Chrome 63']
+        targets: ['not IE 11', 'Chrome 63']
     }), createSvgIconsPlugin({
         iconDirs: [resolve(process.cwd(), 'src/icons')],
         symbolId: 'icon-[dir]-[name]',
