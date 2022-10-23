@@ -1,9 +1,9 @@
 <script setup name="workDetail">
 import { useRoute } from "vue-router";
 import { onMounted } from "vue";
-import checkByMe from "./panels/checkByMe.vue";
-import handleByMe from "./panels/handleByMe.vue";
-import createByMe from "./panels/createByMe.vue";
+import CheckByMe from "./panels/CheckByMe.vue";
+import HandleByMe from "./panels/HandleByMe.vue";
+import CreateByMe from "./panels/CreateByMe.vue";
 
 const route = useRoute();
 const workId = route.query["workId"];

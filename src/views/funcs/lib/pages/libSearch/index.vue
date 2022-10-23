@@ -1,7 +1,7 @@
 <script setup>
 import { useRoute, useRouter } from "vue-router";
 import { onMounted, ref, getCurrentInstance } from "vue";
-import popSelect from "./panels/popSelect.vue"
+import PopSelect from "./panels/PopSelect.vue"
 const router = useRouter();
 const route = useRoute();
 const { proxy } = getCurrentInstance();

@@ -2,9 +2,9 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import createByMe from "./panels/createByMe.vue";
-import handleByMe from "./panels/handleByMe.vue";
-import checkByMe from "./panels/checkByMe.vue";
+import CreateByMe from "./panels/CreateByMe.vue";
+import HandleByMe from "./panels/HandleByMe.vue";
+import CheckByMe from "./panels/CheckByMe.vue";
 const route = useRoute();
 const router = useRouter();
 const active = ref(0);

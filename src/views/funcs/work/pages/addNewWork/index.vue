@@ -83,7 +83,19 @@ const dateTimeFormatter_ = (date) => {
   minutes = minutes.length == 1 ? "0" + minutes : minutes;
   let seconds = date.getSeconds() + "";
   seconds = seconds.length == 1 ? "0" + seconds : seconds;
-  return year + "-" + month + "-" + days + " " + hours + ":" + minutes + ":" + seconds;
+  return (
+    year +
+    "-" +
+    month +
+    "-" +
+    days +
+    " " +
+    hours +
+    ":" +
+    minutes +
+    ":" +
+    seconds
+  );
 };
 const dateTimeParser_ = (timeStr) => {
   let dateTimeParts = timeStr.split(" ");
@@ -152,7 +164,10 @@ onMounted(() => {
         :rules="newWorkFormRules.workType"
       >
         <template #input>
-          <van-radio-group v-model="newWorkForm.workType" direction="horizontal">
+          <van-radio-group
+            v-model="newWorkForm.workType"
+            direction="horizontal"
+          >
             <van-radio name="inner">内部检修</van-radio>
             <van-radio name="outer">外部检修</van-radio>
           </van-radio-group>
@@ -227,7 +242,9 @@ onMounted(() => {
         :rules="newWorkFormRules.workContent"
       />
       <div style="margin: 1rem">
-        <van-button round type="primary" block native-type="submit">提 交</van-button>
+        <van-button round type="primary" block native-type="submit"
+          >提 交</van-button
+        >
       </div>
     </van-form>
     <van-popup v-model:show="showStationOption" position="bottom" round>
@@ -235,7 +252,7 @@ onMounted(() => {
         :columns="stationOption"
         title="工作场站"
         :loading="stationOptionLoading"
-        columns-field-names="stationName"
+        :columns-field-names="{ text: 'stationName', values: 'id' }"
         @confirm="stationSelected_"
         @cancel="showStationOption = false"
       />
